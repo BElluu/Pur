@@ -1,0 +1,10 @@
+---
+dependencies:
+    - role: apt_without_passwd
+    - role: flatpak
+    - role: java
+    - role: packages
+    - role: pip
+    - role: snap
+    - role: tor
+    

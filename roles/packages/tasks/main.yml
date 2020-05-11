@@ -1,0 +1,28 @@
+---
+- name: i386 architecture is enabled (for wine)
+  shell: sudo dpkg --add-architecture i386
+
+- name: Repositories cache is up to date
+  package:
+    name: '*'
+    update_cache: true
+    cache_valid_time: 3600
+  become: true
+
+- name: Unwanted software is not present
+  package:
+    name: '{{ item }}'
+    state: absent
+  become: true
+  with_items: '{{ pur_packages_to_remove }}'
+
+- name: Software is up to date
+  package:
+    upgrade: dist
+  become: true
+
+- name: Wanted software is installed
+  package:
+    name: '{{ item }}'
+  become: true
+  with_items: '{{ pur_packages_to_install }}'

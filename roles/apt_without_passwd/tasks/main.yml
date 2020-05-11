@@ -1,0 +1,20 @@
+---
+- name: Add user to sudo
+  blockinfile:
+    path: '/etc/sudoers.d/{{ user }}'
+    line: '{{ item }}'
+    mode: '0440'
+    create: true
+    with_items:
+      - '{{ user }} ALL=(ALL) NOPASSWD: /usr/bin/apt'
+      - '{{ user }} ALL=(ALL) NOPASSWD: /usr/bin/apt-fast'
+      - '{{ user }} ALL=(ALL) NOPASSWD: /usr/bin/aptitude"'
+    validate: 'visudo --check --file %s'
+
+
+- name: Set includefir in sudoers
+  lineinfile:
+    dest: /etc/sudoers
+    line: "#includefir /etc/sudoers.d"
+    state: present
+    validate: "/usr/sbin/visudo --check --file %s"

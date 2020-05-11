@@ -1,0 +1,67 @@
+---
+packages_to_install:
+    - apt-fast
+    - aptitude
+    - software-properties-common
+    - dirmngr
+
+    - chromium-browser
+
+    - filezilla
+    - gthumb
+    - htop
+    - p7zip-full
+    - vlc
+    - telegram-desktop
+    - ntfs-3g
+    - thunderbird
+    - shutter
+    - xpdf
+    - thunar
+
+    - tor
+    - tor-geoipdb
+    - torsocks
+
+    - virtualbox-qt
+    - virtualbox-guest-additions-iso
+    - docker.io
+    - intel-microcode
+    - driconf
+    - vmgl
+    - vagrant
+    - vagrant-lxc
+    - vagrant-libvirt
+
+    - maven
+    - gradle
+    - git
+    - android-tools-adb
+
+    - gparted
+
+    - prelink
+    - preload
+    - irqbalance
+
+    - wget
+    - curl
+    - vim
+    - nano
+    - zsh
+    - snapd
+    - python3-pip
+    - docker-compose
+
+    - wireshark
+    - nmap
+    - openvpn
+    - NetworkManager-openvpn-gnome
+
+    - ansible
+
+    - numix-blue-gtk-theme
+    - numix-gtk-theme
+    - numix-icon-theme
+
+    - r-base

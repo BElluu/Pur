@@ -1,0 +1,15 @@
+---
+oracle_java_set_as_default: true
+oracle_java_use_defaults: true
+
+# General config.
+oracle_java_apt_repository: 'ppa:linuxuprising/java'
+oracle_java_apt_repository_key: 'EA8CACC073C3DB2A'
+oracle_java_cache_valid_time: 3600
+oracle_java14_deb_package: 'oracle-java14-installer'
+oracle_java_home: "/usr/lib/jvm/java-14-oracle"
+oracle_java_license_version: 'shared/accepted-oracle-license-v1-2'
+oracle_java_state: latest
+
+openjdk_java_apt_repository: 'ppa:openjdk-r/ppa'
+openjdk_java8_deb_package: 'openjdk-8-jdk'

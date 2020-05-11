@@ -1,0 +1,10 @@
+---
+- name: TOR is installed
+  package:
+    name: ['tor', 'tor-geoipdb', 'torsocks']
+  become: true
+
+- name: TOR is enabled
+  service:
+    name: tor
+    enabled: true

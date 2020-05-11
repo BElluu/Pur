@@ -1,0 +1,46 @@
+---
+- name: Ensure the apt repository key is present for Oracle JDK 14
+  apt_key:
+    id: '{{ oracle_java_apt_repository_key }}'
+    keyserver: keyserver.ubuntu.com
+    state: present
+  when: oracle_java_apt_repository_key is defined
+  become: true
+
+- name: Ensure the apt repository is present for Oracle JDK 14
+  apt_repository:
+    repo: '{{ oracle_java_apt_repository }}'
+    update_cache: true
+    state: present
+  become: true
+
+- name: Ensure the apt repository is present for OpenJDK 8
+  apt_repository:
+    repo: '{{ openjdk_java_apt_repository }}'
+    update_cache: true
+    state: present
+  become: true
+
+- name: Set license Java14 as accepted
+  debconf:
+    name: '{{ oracle_java14_deb_package }}'
+    question: '{{ oracle_java_license_version }}'
+    value: 'true'
+    vtype: 'select'
+  become: true
+
+- name: Ensure Java 14 is installed
+  apt:
+    name: '{{ oracle_java14_deb_package }}'
+    state: '{{ oracle_java_state }}'
+    cache_valid_time: '{{ oracle_java_cache_valid_time }}'
+    update_cache: true
+  register: oracle_java_task_apt_install
+  become: true
+
+- name: Ensure OpenJDK Java 8 is installed
+  apt:
+    name: "{{ openjdk_java8_deb_package }}"
+    update_cache: true
+    state: present
+    cache_valid_time: "{{ oracle_java_cache_valid_time }}"

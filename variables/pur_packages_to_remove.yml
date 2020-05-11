@@ -1,0 +1,22 @@
+---
+packages_to_remove:
+    - docker
+    - hexchat
+    - calligra
+    - banshee
+    - totem
+    - tomboy
+    - xchat
+    - cowsay
+    - gedit
+    - claws-mail
+    - winemine
+    - ristretto
+    - geany
+    - xfce4-about
+    - midori
+    - osmo
+    - orage
+    - abiword
+    - gnumeric
+    - rythmbox

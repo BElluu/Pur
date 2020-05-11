@@ -1,0 +1,16 @@
+---
+- name: System is configured
+  hosts: localhost
+  connection: local
+  become: true
+  become_user: root
+  ignore_errors: true
+  vars_files:
+    - variables/groups_to_join.yml
+    - variables/pur_packages_to_install.yml
+    - variables/pur_packages_to_remove.yml
+  vars:
+    username: belluu
+    date_format: '%A %H:%M%n%B %d-%m-%Y'
+  roles:
+    - role: pur_system_is_ready

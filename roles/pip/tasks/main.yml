@@ -1,0 +1,11 @@
+---
+- name: Ensure Pip is installed.
+  package:
+    name: python3-pip
+    state: present
+
+- name: Ensure setuptools are installed.
+  pip:
+    executable: pip3
+    name: setuptools
+  become: true
